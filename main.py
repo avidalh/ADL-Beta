@@ -3,6 +3,8 @@ import tensorflow as tf
 import helper
 import project_tests as tests
 
+# I've used slim for the fully connected
+from tensorflow.contrib import slim 
 
 def load_vgg(sess, vgg_path):
     """
