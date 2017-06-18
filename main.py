@@ -39,7 +39,14 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
     :return: The Tensor for the last layer of output
     """
     # TODO: Implement function
-    return None
+    
+    # concatenate and full connect. (not sure what activation to use...)
+    flattened = tf.concat([vgg_layer3_out, vgg_layer4_out, vgg_layer7_out], 3)
+    output = slim.fully_connected(flattened, num_classes, activation_fn=tf.nn.relu)
+    
+    return output
+
+
 tests.test_layers(layers)
 
 
